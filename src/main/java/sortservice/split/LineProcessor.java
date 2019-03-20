@@ -23,14 +23,14 @@ public class LineProcessor implements ItemProcessor<Line, Line>, StepExecutionLi
     }
 
     /**
-	 * Creates a Line object with words filled in a Treeset 
-     * @param Line contains string received from reader
-	 * @return a Line
-	 */
+    * Creates a Line object with words filled in a Treeset 
+    * @param Line contains string received from reader
+    * @return a Line
+    */
     @Override
     public Line process(final Line line) throws Exception {
-        final String ln = line.getLine().toLowerCase();
-        TreeSet<String> set = new TreeSet<String>();
+	final String ln = line.getLine().toLowerCase();
+	TreeSet<String> set = new TreeSet<String>();
         StringTokenizer st = new StringTokenizer(ln, " ,.;:\"");
         while (st.hasMoreTokens()) {
             String tmp = st.nextToken();
@@ -40,9 +40,6 @@ public class LineProcessor implements ItemProcessor<Line, Line>, StepExecutionLi
         }
 
         final Line transformedLine = new Line(ln, set);
-
-        //log.info("Converting (" + ln + ") into (" + transformedLine + ")");
-
         return transformedLine;
     }
 
