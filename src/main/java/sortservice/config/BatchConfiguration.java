@@ -33,36 +33,36 @@ public class BatchConfiguration {
     public StepBuilderFactory stepBuilderFactory;
 
     /**
-	 * Creates a reader to read lines from inputfile
-	 * @return an item reader to read input file
-	 */
+    * Creates a reader to read lines from inputfile
+    * @return an item reader to read input file
+    */
     @Bean
     public ItemReader<Line> lineReader() {
         return new LineReader();
     }
 
     /**
-	 * Creates a processor to process lines read from inputfile
-	 * @return a lineprocessor to process the content in memory
-	 */
+    * Creates a processor to process lines read from inputfile
+    * @return a lineprocessor to process the content in memory
+    */
     @Bean
     public LineProcessor lineProcessor() {
         return new LineProcessor();
     }
     /**
-	 * Creates a writer to write lines received from processor
-	 * @return an item writer to write processed to output file
-	 */
+    * Creates a writer to write lines received from processor
+    * @return an item writer to write processed to output file
+    */
     @Bean
     public ItemWriter<Line> lineWriter() {
         return new LinesWriter();
     }
 
     /**
-	 * Creates a merger processor to merge the intermediate files into 
-     * one output file
-	 * @return a FilesMergerProcessor
-	 */
+    * Creates a merger processor to merge the intermediate files into 
+    * one output file
+    * @return a FilesMergerProcessor
+    */
     @Bean
     public FilesMergeProcessor mergeProcessor() {
 
@@ -70,9 +70,9 @@ public class BatchConfiguration {
     }
 
     /**
-	 * Provides a task executor to enable multithreading in a batch step 
-	 * @return a TaskExecutor
-	 */
+    * Provides a task executor to enable multithreading in a batch step 
+    * @return a TaskExecutor
+    */
     // @Bean
     // public TaskExecutor taskExecutor() {
     //     SimpleAsyncTaskExecutor taskExecutor = new SimpleAsyncTaskExecutor();
@@ -81,9 +81,9 @@ public class BatchConfiguration {
     // }
 
     /**
-	 * Creates a job that spring container shall run
-	 * @return a Job
-	 */
+    * Creates a job that spring container shall run
+    * @return a Job
+    */
     @Bean
     public Job sortLargeFile(JobCompletionNotificationListener listener) {
         return jobBuilderFactory.get("SortLargFile")
@@ -96,10 +96,10 @@ public class BatchConfiguration {
     }
 
     /**
-	 * Creates a step to read a chunk of input file,
-     * process it and write it to disk
-	 * @return a Step
-	 */
+    * Creates a step to read a chunk of input file,
+    * process it and write it to disk
+    * @return a Step
+    */
     @Bean
     public Step split() {
         return stepBuilderFactory.get("Split")
@@ -111,10 +111,10 @@ public class BatchConfiguration {
     }
 
     /**
-	 * Creates a step to merge the intermediate file
-     * generated in split step
-	 * @return a Step
-	 */
+    * Creates a step to merge the intermediate file
+    * generated in split step
+    * @return a Step
+    */
     @Bean
     public Step mergeFiles() {
         return stepBuilderFactory.get("MergeSortedFiles")
