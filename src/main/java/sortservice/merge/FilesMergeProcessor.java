@@ -170,7 +170,7 @@ public class FilesMergeProcessor implements Tasklet, StepExecutionListener {
                 firstLines.put(winningReader, next);
             }
         }
-        
+
         // Write remaining to output
         if (writeList.size() > 0) {
             writer.write(writeList);
@@ -180,14 +180,11 @@ public class FilesMergeProcessor implements Tasklet, StepExecutionListener {
         writer.close();
 		
         return RepeatStatus.FINISHED;
-       }
+    }
 
     @Override
     public ExitStatus afterStep(StepExecution stepExecution) {
         return ExitStatus.COMPLETED;
     }
-
-
-
 
 }
