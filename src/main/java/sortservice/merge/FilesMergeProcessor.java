@@ -94,17 +94,17 @@ public class FilesMergeProcessor implements Tasklet, StepExecutionListener {
 
         // Go over the list of files and add them to readers obj
         for (int i = 0; i < listOfFiles.length; i++) {
-            if (listOfFiles[i].isFile()) {
-                FlatFileItemReader<String> fReader;
-                try {
-                    fReader = fileReader(new FileSystemResource(listOfFiles[i]));
-                    readers.add(fReader);
-                } catch (Exception e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-            } 
-          }
+		if (listOfFiles[i].isFile()) {
+                	FlatFileItemReader<String> fReader;
+                	try {
+                    		fReader = fileReader(new FileSystemResource(listOfFiles[i]));
+                    		readers.add(fReader);
+                	} catch (Exception e) {
+                    		// TODO Auto-generated catch block
+                    		e.printStackTrace();
+                	}
+            	}	 
+	}
 
         // Create writer for the output file
         this.writer= fileWriter(new FileSystemResource(Config.DESTINATION_FILE_LOCATION));
