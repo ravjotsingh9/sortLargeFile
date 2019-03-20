@@ -35,6 +35,7 @@ mkdir output
 3. Content in input file is english text and expected to be sorted in english lexographical order.
 4. Process have permission to write files in given location.
 5. First line from all intermediate files can be placed in memory together.
+6. All files in user-provided location for intermediate file will be processed.
 
 ## Design Goals
 1. Large file processing robustness.
