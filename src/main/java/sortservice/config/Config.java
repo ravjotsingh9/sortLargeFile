@@ -22,5 +22,5 @@ public class Config {
     /**
 	 * Intermediate file location.The directory path must exist.
 	 */
-    public static final String DESTINATION_LOCATION = "./output/intermediate/";
+    public static final String DESTINATION_LOCATION = "./output/";
 }
