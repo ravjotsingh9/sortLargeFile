@@ -21,6 +21,10 @@ The following parameters can be configured (*in code*) in Config.java according 
 - `DESTINATION_LOCATION`: Intermidiate file directory. If provided directory doesn't exist, application will fail.
 
 ### Command to Run
+
+```
+mkdir output
+```
 ```
 ./mvnw clean spring-boot:run
 ```
